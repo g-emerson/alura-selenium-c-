@@ -14,7 +14,7 @@ namespace Teste_Automatizado
         static void Main(string[] args)
         {
             IWebDriver driver = new FirefoxDriver();
-            driver.Navigate().GoToUrl("https://www.google.com.br/");
+            driver.Navigate().GoToUrl("http://www.bing.com");
 
             IWebElement campoDeTexto =  driver.FindElement(By.Name("q"));
             campoDeTexto.SendKeys("Caelum");
