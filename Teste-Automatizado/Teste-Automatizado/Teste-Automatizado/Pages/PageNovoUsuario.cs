@@ -26,7 +26,29 @@ namespace Teste_Automatizado.Pages
             campoNome.SendKeys(nome);
             campoEmail.SendKeys(email);
             btnSalvar.Click();
-        }       
+        }
+
+        public bool ValidaNomeObrigadotio()
+        {
+          // IWebElement campoNome = driver.FindElement(By.Name("usuario.nome"));
+          // IWebElement campoEmail = driver.FindElement(By.Name("usuario.email"));
+          // IWebElement btnSalvar = driver.FindElement(By.Id("btnSalvar"));
+          //
+          // campoNome.SendKeys(nome);
+          // campoEmail.SendKeys(email);
+          // btnSalvar.Click();
+
+            bool mensagemNome = driver.PageSource.Contains("Nome obrigatorio!");
+  
+            return mensagemNome;
+        }
+
+        public bool ValidaEmailObrigadotio()
+        {
+            bool mensagemEmail = driver.PageSource.Contains("E-mail obrigatorio!");
+
+            return mensagemEmail;
+        }
 
     }
 }
