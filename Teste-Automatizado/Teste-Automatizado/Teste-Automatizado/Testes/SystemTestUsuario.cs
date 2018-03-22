@@ -70,6 +70,18 @@ namespace Teste_Automatizado.Testes
 
           }
 
-       
+        [Test]
+        public void deveValidarLinkNovoUsuario()
+        {
+            driver.Navigate().GoToUrl("http://localhost:8080/usuarios");
+
+            IWebElement linkNovoUser = driver.FindElement(By.LinkText("Novo Usuário"));
+
+            linkNovoUser.Click();
+
+            bool achouCampoNome = driver.PageSource.Contains("Nome:");
+
+            Assert.IsTrue(achouCampoNome);
+        }
     }
 }
