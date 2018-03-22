@@ -6,18 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
+using Teste_Automatizado.Pages;
 
 namespace Teste_Automatizado.Testes
 {
     [TestFixture]
     class SystemTestUsuario
-    {
+    {    
+        private PageUsuario usuarios;
         IWebDriver driver;
+
+
+        public SystemTestUsuario()
+        {
+            driver = new FirefoxDriver();
+            usuarios = new PageUsuario(driver);
+        }
 
         [SetUp]
         public void AntesDosTestes()
         {
-            driver = new FirefoxDriver();
+         // driver = new FirefoxDriver();
         }
 
         [TearDown]
@@ -28,26 +37,13 @@ namespace Teste_Automatizado.Testes
 
         [Test]
         public void deveCadastrarUsuario()
-        {           
-            driver.Navigate().GoToUrl("http://localhost:8080/usuarios/new");
+        {
+            usuarios.Visita();
+            usuarios.Novo().Cadastra("Testes nome", "Emai@user.com");
 
-            IWebElement campoNome = driver.FindElement(By.Name("usuario.nome"));
-            IWebElement campoEmail = driver.FindElement(By.Name("usuario.email"));
-            IWebElement btnSalvar = driver.FindElement(By.Id("btnSalvar"));
-
-            campoNome.SendKeys("Usuario 1 nome");
-            campoEmail.SendKeys("email@user.com");
-
-            btnSalvar.Click();
-
-            bool achouNome = driver.PageSource.Contains("Usuario 1 nome");
-            bool achouEmail = driver.PageSource.Contains("email@user.com");
-
-            Assert.IsTrue(achouNome);
-            Assert.IsTrue(achouEmail);
-
-         }
-
+            Assert.IsTrue(usuarios.ExisteNaListagem("Testes nome", "Emai@user.com"));
+        }
+        /*
         [Test]
         public void deveValidarNomeCadastrarUsuario()
         {
@@ -83,5 +79,6 @@ namespace Teste_Automatizado.Testes
 
             Assert.IsTrue(achouCampoNome);
         }
+        */
     }
 }
