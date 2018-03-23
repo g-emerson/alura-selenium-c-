@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Teste_Automatizado.Pages
 {
-    public class PageUsuario
+    class PageUsuario
     {
         IWebDriver driver;
         public PageUsuario(IWebDriver driver)
@@ -35,5 +35,14 @@ namespace Teste_Automatizado.Pages
             driver.Navigate().GoToUrl("http://localhost:8080/usuarios");
         }
 
+        public void Exclui(int posicao)
+        {
+            driver.FindElements(By.TagName("button"))[posicao - 1].Click();
+
+            // pega o alert que está aberto
+            IAlert alert = driver.SwitchTo().Alert();
+            // confirma
+            alert.Accept();
+        }
     }
 }

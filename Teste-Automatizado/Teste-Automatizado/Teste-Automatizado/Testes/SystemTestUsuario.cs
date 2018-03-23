@@ -15,8 +15,7 @@ namespace Teste_Automatizado.Testes
     {    
         private PageUsuario usuarios;
         IWebDriver driver;
-
-
+        
         public SystemTestUsuario()
         {
             driver = new FirefoxDriver();
@@ -26,7 +25,7 @@ namespace Teste_Automatizado.Testes
         [SetUp]
         public void AntesDosTestes()
         {
-             driver = new FirefoxDriver();
+            // driver = new FirefoxDriver();
         }
 
         [TearDown]
@@ -77,6 +76,24 @@ namespace Teste_Automatizado.Testes
       
             Assert.IsTrue(achouCampoNome);
         }
-        
+
+        [Test]
+        public void deveExcluirUsuario()
+        {
+            usuarios.Visita();
+            usuarios.Novo().Cadastra("Usuario Excluir", "Emai@user.com");
+
+            Assert.IsTrue(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
+
+            usuarios.Exclui(1);
+
+             Assert.IsFalse(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
+             
+
+        }
+
+
+
+
     }
 }
