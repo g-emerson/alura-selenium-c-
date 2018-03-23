@@ -61,10 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\PageLeiloes.cs" />
+    <Compile Include="Pages\PageNovoLeilao.cs" />
     <Compile Include="Pages\PageNovoUsuario.cs" />
     <Compile Include="Pages\PageUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testes\SystemTestLeilao.cs" />
     <Compile Include="Testes\SystemTestUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

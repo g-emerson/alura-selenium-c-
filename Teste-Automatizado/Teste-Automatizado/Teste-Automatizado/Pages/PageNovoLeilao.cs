@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Teste_Automatizado.Pages
 {
-    public class PageNovoUsuario
+    class PageNovoLeilao
     {
-
         IWebDriver driver;
-        public PageNovoUsuario(IWebDriver driver)
+        public PageNovoLeilao(IWebDriver driver)
         {
             this.driver = driver;
         }
@@ -31,7 +29,7 @@ namespace Teste_Automatizado.Pages
         public bool ValidaNomeObrigadotio()
         {
             bool mensagemNome = driver.PageSource.Contains("Nome obrigatorio!");
-  
+
             return mensagemNome;
         }
 
@@ -41,6 +39,5 @@ namespace Teste_Automatizado.Pages
 
             return mensagemEmail;
         }
-
     }
 }
