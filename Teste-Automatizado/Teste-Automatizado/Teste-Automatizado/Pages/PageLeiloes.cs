@@ -2,14 +2,15 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Teste_Automatizado.Pages
 {
-    class PageLeiloes
-    {
+class PageLeiloes
+    {        
         IWebDriver driver;
         public PageLeiloes(IWebDriver driver)
         {
@@ -27,15 +28,7 @@ namespace Teste_Automatizado.Pages
         {
                 driver.Navigate().GoToUrl("http://localhost:8080/leiloes");
         }
-
-
-        public bool existe(string produto, double valor, string usuario, bool usado)
-        {
-            return driver.PageSource.Contains(produto) &&
-                    driver.PageSource.Contains(Convert.ToString(valor)) &&
-                    driver.PageSource.Contains(usuario) &&
-                    driver.PageSource.Contains(usado ? "Sim" : "Não");
-        }
+              
         public bool ExisteNaListagem(string nome, double preco, String usuario, bool usado)
         {//"Produto", 300, "Usuario", true
             return driver.PageSource.Contains(nome) &&

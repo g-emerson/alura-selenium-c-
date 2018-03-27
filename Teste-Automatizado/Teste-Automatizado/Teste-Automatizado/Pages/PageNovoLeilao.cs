@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Teste_Automatizado.Pages
             IWebElement campoValorInicial = driver.FindElement(By.Name("leilao.valorInicial"));
             IWebElement checkUsado = driver.FindElement(By.Name("leilao.usado"));
             SelectElement cbUsuario = new SelectElement(driver.FindElement(By.Name("leilao.usuario.id")));
+            IWebElement btnSalvar = driver.FindElement(By.TagName("button"));
 
             campoNome.SendKeys(nome);
             campoValorInicial.SendKeys(preco.ToString());
@@ -32,21 +34,23 @@ namespace Teste_Automatizado.Pages
                 checkUsado.Click();
             }
 
-            campoValorInicial.Submit();
+            btnSalvar.Click();
         }
 
-        public bool ValidaNomeObrigadotio()
+        public bool validaNomeLeilaoObrigatorio()
         {
+            
             bool mensagemNome = driver.PageSource.Contains("Nome obrigatorio!");
+
 
             return mensagemNome;
         }
-
-        public bool ValidaEmailObrigadotio()
+       
+        public bool validaLanceLeilaoObrigatorio()
         {
-            bool mensagemEmail = driver.PageSource.Contains("E-mail obrigatorio!");
-
-            return mensagemEmail;
+            return driver.PageSource.Contains("Valor inicial deve ser maior que zero!");
         }
+        
+
     }
 }
