@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,18 +25,23 @@ namespace Teste_Automatizado.Pages
 
         public void Visita()
         {
-            driver.Navigate().GoToUrl("http://localhost:8080/leiloes");
+                driver.Navigate().GoToUrl("http://localhost:8080/leiloes");
         }
-        
-        public bool ExisteNaListagem(String nome, String preco, String usuario, String  usado)
+
+
+        public bool existe(string produto, double valor, string usuario, bool usado)
+        {
+            return driver.PageSource.Contains(produto) &&
+                    driver.PageSource.Contains(Convert.ToString(valor)) &&
+                    driver.PageSource.Contains(usuario) &&
+                    driver.PageSource.Contains(usado ? "Sim" : "Não");
+        }
+        public bool ExisteNaListagem(string nome, double preco, String usuario, bool usado)
         {//"Produto", 300, "Usuario", true
-            bool achouNome = driver.PageSource.Contains(nome);
-            bool achouValor = driver.PageSource.Contains(preco);
-            bool achouUsuario = driver.PageSource.Contains(usuario);
-            bool achouUsado = driver.PageSource.Contains(usado);
-
-
-            return achouEmail && achouEmail;
+            return driver.PageSource.Contains(nome) &&
+                      driver.PageSource.Contains(Convert.ToString(preco)) &&
+                      driver.PageSource.Contains(usuario) &&
+                      driver.PageSource.Contains(usado ? "Sim" : "Não");
         }
 
         public void Exclui(int posicao)
