@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\PageEditarUsuario.cs" />
     <Compile Include="Pages\PageLeiloes.cs" />
     <Compile Include="Pages\PageNovoLeilao.cs" />
     <Compile Include="Pages\PageNovoUsuario.cs" />

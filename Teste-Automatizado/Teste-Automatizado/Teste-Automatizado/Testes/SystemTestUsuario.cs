@@ -92,7 +92,17 @@ namespace Teste_Automatizado.Testes
 
         }
 
+        [Test]
+        public void deveEditarUsuario()
+        {
+            usuarios.Visita();
+            usuarios.Novo().Cadastra("Usuario Editar", "email@editar.com.br");
 
+            usuarios.Visita();
+            usuarios.EditarDadosUsuario(1).Editar("Usuario Modificado", "email@modificado.com.br");
+            Assert.IsFalse(usuarios.ExisteNaListagem("Usuario Editar", "email@editar.com.br"));
+            Assert.IsTrue(usuarios.ExisteNaListagem("Usuario Modificado", "email@modificado.com.br"));
+        }
 
 
     }

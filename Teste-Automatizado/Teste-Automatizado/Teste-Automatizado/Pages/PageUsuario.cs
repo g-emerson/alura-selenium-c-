@@ -44,5 +44,12 @@ namespace Teste_Automatizado.Pages
             // confirma
             alert.Accept();
         }
+
+        public PageEditarUsuario EditarDadosUsuario(int posicao)
+        {
+            driver.FindElements(By.LinkText("editar"))[posicao - 1].Click();
+
+            return new PageEditarUsuario(driver);
+        }
     }
 }
