@@ -25,13 +25,14 @@ namespace Teste_Automatizado.Testes
         [SetUp]
         public void AntesDosTestes()
         {
+            driver.Navigate().GoToUrl("http://localhost:8080/apenas-teste/limpa");
             // driver = new FirefoxDriver();
         }
 
         [TearDown]
         public void DepoisDosTestes()
         {
-            //driver.Close();
+            driver.Close();
         }
 
         [Test]

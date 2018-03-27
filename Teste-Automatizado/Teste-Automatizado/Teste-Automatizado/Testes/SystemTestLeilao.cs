@@ -28,6 +28,7 @@ namespace Teste_Automatizado.Testes
         [SetUp]
         public void AntesDosTestes()
         {
+            driver.Navigate().GoToUrl("http://localhost:8080/apenas-teste/limpa");
             // driver = new FirefoxDriver();
             usuarios.Visita();
             usuarios.Novo().Cadastra("Usuario 1 comprador", "comprador@user.com");
@@ -37,6 +38,12 @@ namespace Teste_Automatizado.Testes
             Assert.IsTrue(usuarios.ExisteNaListagem("Usuario 1 vendedor", "vendedor@user.com"));
         }
 
+
+        [TearDown]
+        public void DepoisDosTestes()
+        {
+            driver.Close();
+        }
         // WebDriverWait wait;
         //wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); //espera por dez sengundos
 
