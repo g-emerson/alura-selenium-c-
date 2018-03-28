@@ -83,6 +83,9 @@ namespace Teste_Automatizado.Testes
             Assert.IsTrue(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
 
             usuarios.Exclui(1);
+            usuarios.Novo();
+            usuarios.Visita();
+            
             Assert.IsFalse(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
         }        
 
