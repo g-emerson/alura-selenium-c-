@@ -41,9 +41,7 @@ namespace Teste_Automatizado.Testes
         {
             driver.Close();
         }
-        // WebDriverWait wait;
-        //wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); //espera por dez sengundos
-
+        
         [Test]
         public void deveCadastrarUmLeilao()
         {

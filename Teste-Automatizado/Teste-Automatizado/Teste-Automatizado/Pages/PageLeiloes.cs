@@ -37,14 +37,11 @@ class PageLeiloes
                       driver.PageSource.Contains(usado ? "Sim" : "Não");
         }
 
-        public void Exclui(int posicao)
+        public PageDetalhesLeilao Detalhes(int posicao)
         {
-            driver.FindElements(By.TagName("button"))[posicao - 1].Click();
+            driver.FindElements(By.LinkText("exibir"))[posicao - 1].Click();
+            return new PageDetalhesLeilao(driver);
 
-            // pega o alert que está aberto
-            IAlert alert = driver.SwitchTo().Alert();
-            // confirma
-            alert.Accept();
         }
     }
 }
