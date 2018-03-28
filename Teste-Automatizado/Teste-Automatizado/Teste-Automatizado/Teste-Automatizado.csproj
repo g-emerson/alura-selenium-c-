@@ -73,6 +73,7 @@
     <Compile Include="Testes\SystemTestLance.cs" />
     <Compile Include="Testes\SystemTestLeilao.cs" />
     <Compile Include="Testes\SystemTestUsuario.cs" />
+    <Compile Include="Testes\URLDaAplicacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

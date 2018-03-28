@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Teste_Automatizado.Testes;
 
 namespace Teste_Automatizado.Pages
 {
@@ -32,7 +33,7 @@ namespace Teste_Automatizado.Pages
 
         public void Visita()
         {
-            driver.Navigate().GoToUrl("http://localhost:8080/usuarios");
+            driver.Navigate().GoToUrl(new URLDaAplicacao().GetUrlBase() + "/usuarios");
         }
 
         public void Exclui(int posicao)

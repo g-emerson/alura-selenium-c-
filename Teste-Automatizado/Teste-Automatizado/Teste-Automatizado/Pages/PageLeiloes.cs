@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Teste_Automatizado.Testes;
 
 namespace Teste_Automatizado.Pages
 {
@@ -26,7 +27,7 @@ class PageLeiloes
 
         public void Visita()
         {
-                driver.Navigate().GoToUrl("http://localhost:8080/leiloes");
+                driver.Navigate().GoToUrl(new URLDaAplicacao().GetUrlBase() + "/leiloes");
         }
               
         public bool ExisteNaListagem(string nome, double preco, String usuario, bool usado)

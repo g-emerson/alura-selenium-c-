@@ -64,7 +64,7 @@ namespace Teste_Automatizado.Testes
         [Test]
         public void deveValidarLinkNovoUsuario()
         {
-            driver.Navigate().GoToUrl("http://localhost:8080/usuarios");
+            driver.Navigate().GoToUrl(new URLDaAplicacao().GetUrlBase() + "/usuarios");
       
             IWebElement linkNovoUser = driver.FindElement(By.LinkText("Novo Usuário"));
       
