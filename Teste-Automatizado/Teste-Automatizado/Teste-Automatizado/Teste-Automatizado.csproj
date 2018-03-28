@@ -69,6 +69,7 @@
     <Compile Include="Pages\PageUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testes\CriadorDeCenarios.cs" />
     <Compile Include="Testes\SystemTestLance.cs" />
     <Compile Include="Testes\SystemTestLeilao.cs" />
     <Compile Include="Testes\SystemTestUsuario.cs" />

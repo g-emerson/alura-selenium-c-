@@ -17,7 +17,7 @@ namespace Teste_Automatizado.Pages
             this.driver = driver;
         }
 
-        public void Cadastra(String nome, int preco, String usuario, bool usado)
+        public void Cadastra(String nome, double preco, String usuario, bool usado)
         {
             IWebElement campoNome = driver.FindElement(By.Name("leilao.nome"));
             IWebElement campoValorInicial = driver.FindElement(By.Name("leilao.valorInicial"));
