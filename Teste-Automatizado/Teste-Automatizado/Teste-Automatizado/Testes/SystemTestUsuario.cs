@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
 using NUnit.Framework;
 using Teste_Automatizado.Pages;
+using OpenQA.Selenium.Support.UI;
 
 namespace Teste_Automatizado.Testes
 {
@@ -16,17 +17,13 @@ namespace Teste_Automatizado.Testes
         private PageUsuario usuarios;
         IWebDriver driver;
         
-        public SystemTestUsuario()
-        {
-            driver = new FirefoxDriver();
-            usuarios = new PageUsuario(driver);
-        }
-
-        [SetUp]
+         [SetUp]
         public void AntesDosTestes()
         {
+            driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://localhost:8080/apenas-teste/limpa");
-            // driver = new FirefoxDriver();
+            usuarios = new PageUsuario(driver);
+
         }
 
         [TearDown]
@@ -83,15 +80,11 @@ namespace Teste_Automatizado.Testes
         {
             usuarios.Visita();
             usuarios.Novo().Cadastra("Usuario Excluir", "Emai@user.com");
-
             Assert.IsTrue(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
 
             usuarios.Exclui(1);
-
-             Assert.IsFalse(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
-             
-
-        }
+            Assert.IsFalse(usuarios.ExisteNaListagem("Usuario Excluir", "Emai@user.com"));
+        }        
 
         [Test]
         public void deveEditarUsuario()

@@ -18,18 +18,15 @@ namespace Teste_Automatizado.Testes
         IWebDriver driver;
         private PageUsuario usuarios;
 
-        public SystemTestLeilao()
-        {
-            driver = new FirefoxDriver();
-            leilao = new PageLeiloes(driver);
-            usuarios = new PageUsuario(driver);
-        }
-
-        [SetUp]
+         [SetUp]
         public void AntesDosTestes()
         {
+            
+            driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://localhost:8080/apenas-teste/limpa");
-            // driver = new FirefoxDriver();
+            leilao = new PageLeiloes(driver);
+            usuarios = new PageUsuario(driver);
+
             usuarios.Visita();
             usuarios.Novo().Cadastra("Usuario 1 comprador", "comprador@user.com");
             usuarios.Novo().Cadastra("Usuario 1 vendedor", "vendedor@user.com");
